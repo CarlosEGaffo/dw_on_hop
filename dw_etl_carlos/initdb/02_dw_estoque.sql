@@ -1,18 +1,11 @@
 -- ============================================================
 -- DATA WAREHOUSE - ESTOQUE
--- Grão da fato: 1 linha por movimentação de estoque
--- Opção A (didática): schema "dw" na mesma database do ERP.
--- Opção B: crie uma database nova (ex.: dw_estoque), rode este
---          script nela e aponte a conexão DW-DESTINO para ela.
--- Aluno: Carlos Eduardo Gaffo da Rocha
 -- ============================================================
 
 DROP SCHEMA IF EXISTS dw CASCADE;
 CREATE SCHEMA dw;
 
--- ------------------------------------------------------------
--- DIM_TEMPO  (sk_tempo no formato AAAAMMDD, ex.: 20260315)
--- ------------------------------------------------------------
+-- DIM_TEMPO
 CREATE TABLE dw.dim_tempo (
     sk_tempo        INTEGER PRIMARY KEY,
     data            DATE,
@@ -21,14 +14,12 @@ CREATE TABLE dw.dim_tempo (
     nome_mes        VARCHAR(20),
     trimestre       INTEGER,
     ano             INTEGER,
-    dia_semana      INTEGER,          -- 1 = domingo ... 7 = sábado
+    dia_semana      INTEGER,          
     nome_dia_semana VARCHAR(20),
-    fim_de_semana   CHAR(1)           -- 'S' / 'N'
+    fim_de_semana   CHAR(1)           
 );
 
--- ------------------------------------------------------------
--- DIM_PRODUTO  (SCD Tipo 1)
--- ------------------------------------------------------------
+-- DIM_PRODUTO
 CREATE SEQUENCE dw.seq_dim_produto START 1;
 
 CREATE TABLE dw.dim_produto (
@@ -46,9 +37,7 @@ CREATE TABLE dw.dim_produto (
     ativo             BOOLEAN
 );
 
--- ------------------------------------------------------------
--- DIM_DEPOSITO  (depósito + filial + cidade + estado)
--- ------------------------------------------------------------
+-- DIM_DEPOSITO
 CREATE SEQUENCE dw.seq_dim_deposito START 1;
 
 CREATE TABLE dw.dim_deposito (
@@ -64,22 +53,18 @@ CREATE TABLE dw.dim_deposito (
     regiao        VARCHAR(30)
 );
 
--- ------------------------------------------------------------
 -- DIM_TIPO_MOVIMENTO
--- ------------------------------------------------------------
 CREATE SEQUENCE dw.seq_dim_tipo_movimento START 1;
 
 CREATE TABLE dw.dim_tipo_movimento (
     sk_tipo_movimento INTEGER PRIMARY KEY DEFAULT nextval('dw.seq_dim_tipo_movimento'),
-    cd_tipo           VARCHAR(20) NOT NULL UNIQUE,   -- ENTRADA / SAIDA / AJUSTE
+    cd_tipo           VARCHAR(20) NOT NULL UNIQUE,  
     descricao         VARCHAR(60),
-    origem            VARCHAR(30),                   -- Compra / Venda / Inventário
-    fator_sinal       INTEGER NOT NULL               -- +1 soma no estoque, -1 subtrai
+    origem            VARCHAR(30),                   
+    fator_sinal       INTEGER NOT NULL               
 );
 
--- ------------------------------------------------------------
 -- DIM_LOTE
--- ------------------------------------------------------------
 CREATE SEQUENCE dw.seq_dim_lote START 1;
 
 CREATE TABLE dw.dim_lote (
@@ -91,37 +76,31 @@ CREATE TABLE dw.dim_lote (
     data_validade   DATE
 );
 
--- ------------------------------------------------------------
--- MEMBROS "NÃO INFORMADO" (sk = -1)
--- Usados como valor default nos Database Lookups da fato.
--- ------------------------------------------------------------
 INSERT INTO dw.dim_tempo VALUES (-1, NULL, NULL, NULL, 'Não informado', NULL, NULL, NULL, 'Não informado', 'N');
 INSERT INTO dw.dim_produto (sk_produto, nk_produto, sku, nome_produto) VALUES (-1, -1, 'N/I', 'Não informado');
 INSERT INTO dw.dim_deposito (sk_deposito, nk_deposito, nome_deposito) VALUES (-1, -1, 'Não informado');
 INSERT INTO dw.dim_tipo_movimento (sk_tipo_movimento, cd_tipo, descricao, origem, fator_sinal) VALUES (-1, 'N/I', 'Não informado', 'Não informado', 0);
 INSERT INTO dw.dim_lote (sk_lote, nk_lote, numero_lote) VALUES (-1, -1, 'Sem lote / lote inválido');
 
--- ------------------------------------------------------------
--- FATO_MOVIMENTO_ESTOQUE  (1 linha por movimentação)
--- ------------------------------------------------------------
+-- FATO_MOVIMENTO_ESTOQUE 1l
 CREATE SEQUENCE dw.seq_fato_movimento_estoque START 1;
 
 CREATE TABLE dw.fato_movimento_estoque (
     sk_fato_movimento      INTEGER PRIMARY KEY DEFAULT nextval('dw.seq_fato_movimento_estoque'),
-    nk_movimento           INTEGER NOT NULL UNIQUE,   -- id_movimento do ERP
+    nk_movimento           INTEGER NOT NULL UNIQUE,  
     sk_tempo               INTEGER NOT NULL REFERENCES dw.dim_tempo(sk_tempo),
     sk_produto             INTEGER NOT NULL REFERENCES dw.dim_produto(sk_produto),
     sk_deposito            INTEGER NOT NULL REFERENCES dw.dim_deposito(sk_deposito),
     sk_tipo_movimento      INTEGER NOT NULL REFERENCES dw.dim_tipo_movimento(sk_tipo_movimento),
     sk_lote                INTEGER NOT NULL REFERENCES dw.dim_lote(sk_lote),
     data_hora_movimento    TIMESTAMP,
-    nr_pedido_venda        INTEGER,                   -- dimensão degenerada
-    nr_pedido_compra       INTEGER,                   -- dimensão degenerada
-    fl_documento_cancelado CHAR(1),                   -- 'S' se o pedido de origem foi cancelado
+    nr_pedido_venda        INTEGER,                   
+    nr_pedido_compra       INTEGER,                   
+    fl_documento_cancelado CHAR(1),                   
     observacao             VARCHAR(250),
-    quantidade             NUMERIC(12,3),             -- sempre positiva
-    qtd_efeito_estoque     NUMERIC(12,3),             -- + entra, - sai
+    quantidade             NUMERIC(12,3),             
+    qtd_efeito_estoque     NUMERIC(12,3),             
     custo_unitario         NUMERIC(12,2),
-    valor_total            NUMERIC(14,2),             -- quantidade * custo
-    valor_efeito_estoque   NUMERIC(14,2)              -- qtd_efeito * custo
+    valor_total            NUMERIC(14,2),             
+    valor_efeito_estoque   NUMERIC(14,2)              
 );

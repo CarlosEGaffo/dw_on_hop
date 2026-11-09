@@ -4174,4 +4174,95 @@ INSERT INTO conta_receber (id_pedido, data_emissao, data_vencimento, valor, form
 (198, '2026-01-16', '2026-03-02', 300.64, 'Cartão de Crédito', 'Pago', '2026-03-02'),
 (199, '2026-03-25', '2026-05-24', 1437.38, 'Cartão', 'pago', '2026-05-24'),
 (200, '2026-03-10', '2026-03-10', 1927
-Exibindo ERP para Business.sql…
+.56, 'Pix ', 'QUITADO', '2026-03-10'),
+(201, '2026-01-22', '2026-03-23', 5604.52, 'Cartão de Crédito', 'Pago', '2026-03-23'),
+(203, '2026-03-04', '2026-05-03', 4992.04, 'Cartão de Crédito', 'Pago', '2026-05-03'),
+(204, '2026-06-23', '2026-08-22', 3342.77, 'pix', 'QUITADO', '2026-08-22'),
+(205, '2026-05-03', '2026-07-02', 1978.06, 'pix', 'PAGO', '2026-07-02'),
+(206, '2026-01-11', '2026-02-25', 4919.92, 'Cartão de Crédito', 'pago', '2026-02-25'),
+(207, '2026-05-17', '2026-06-16', 5505.05, 'Pix ', 'Aberto', NULL),
+(208, '2026-01-19', '2026-03-20', 2821.37, 'pix', 'pago', '2026-03-20'),
+(211, '2026-04-09', '2026-06-08', 1671.88, 'Pix ', 'QUITADO', '2026-06-08'),
+(212, '2026-08-08', '2026-08-08', 5964.34, 'CARTAO CREDITO', 'Aberto', NULL),
+(213, '2026-03-29', '2026-04-13', 3297.25, 'cartao de credito', 'PAGO', '2026-04-13'),
+(214, '2026-04-08', '2026-04-23', 3100.26, 'cartao de credito', 'PAGO', '2026-04-23'),
+(215, '2026-04-20', '2026-06-04', 1580.09, 'Cartão', 'Aberto', NULL),
+(216, '2026-07-01', '2026-08-15', 493.46, 'Boleto', 'Aberto', NULL),
+(218, '2026-06-27', '2026-08-11', 3279.36, 'Cartão de Crédito', 'PAGO', '2026-08-11'),
+(219, '2026-03-24', '2026-05-08', 2299.09, 'Cartão', 'pago', '2026-05-08'),
+(220, '2026-04-21', '2026-05-06', 2823.96, 'PIX', 'Pago', '2026-05-06'),
+(221, '2026-02-03', '2026-03-05', 844.54, 'Pix ', 'Aberto', NULL),
+(223, '2026-02-19', '2026-03-21', 545.07, 'Boleto', 'PAGO', '2026-03-21'),
+(224, '2026-04-05', '2026-04-05', 5863.77, 'pix', 'QUITADO', '2026-04-05'),
+(226, '2026-05-02', '2026-06-16', 56.99, 'Boleto', 'PAGO', '2026-06-16'),
+(227, '2026-06-26', '2026-06-26', 2903.25, 'CARTAO CREDITO', 'PAGO', '2026-06-26'),
+(228, '2026-02-23', '2026-03-25', 396.38, 'PIX', 'Aberto', NULL),
+(229, '2026-07-31', '2026-09-29', 2306.88, 'cartao de credito', 'pago', '2026-09-29'),
+(230, '2026-01-07', '2026-01-07', 1998.76, 'CARTAO CREDITO', 'ABERTO', NULL),
+(232, '2026-03-05', '2026-03-05', 3003.35, 'Pix ', 'ABERTO', NULL),
+(235, '2026-03-19', '2026-04-18', 3413.81, 'cartao de credito', 'Pago', '2026-04-18'),
+(236, '2026-01-21', '2026-03-22', 1094.97, 'CARTAO CREDITO', 'ABERTO', NULL),
+(238, '2026-07-14', '2026-08-28', 2218.62, 'Cartão', 'QUITADO', '2026-08-28'),
+(239, '2026-04-30', '2026-05-30', 3858.02, 'Boleto', 'QUITADO', '2026-05-30'),
+(240, '2026-04-26', '2026-05-26', 4996.93, 'cartao de credito', 'QUITADO', '2026-05-26'),
+(241, '2026-04-15', '2026-06-14', 4593.13, 'pix', 'Pago', '2026-06-14'),
+(244, '2026-06-07', '2026-07-07', 4682.43, 'PIX', 'PAGO', '2026-07-07'),
+(245, '2026-03-09', '2026-04-08', 602.85, 'PIX', 'ABERTO', NULL),
+(248, '2026-08-10', '2026-09-24', 4787.52, 'Boleto', 'QUITADO', '2026-09-24'),
+(249, '2026-05-09', '2026-05-09', 4474.08, 'Boleto', 'PAGO', '2026-05-09'),
+(250, '2026-07-28', '2026-08-27', 2093.86, 'CARTAO CREDITO', 'QUITADO', '2026-08-27'),
+(251, '2026-01-25', '2026-01-25', 4809.63, 'pix', 'QUITADO', '2026-01-25'),
+(252, '2026-03-16', '2026-03-16', 1686.44, 'Cartão de Crédito', 'Pago', '2026-03-16'),
+(253, '2026-04-09', '2026-05-09', 3044.73, 'cartao de credito', 'PAGO', '2026-05-09'),
+(255, '2026-03-06', '2026-04-20', 1570.18, 'Pix ', 'Aberto', NULL),
+(256, '2026-04-21', '2026-05-21', 2274.62, 'PIX', 'QUITADO', '2026-05-21'),
+(257, '2026-05-27', '2026-05-27', 628.17, 'CARTAO CREDITO', 'ABERTO', NULL),
+(258, '2026-04-14', '2026-06-13', 2263.07, 'CARTAO CREDITO', 'pago', '2026-06-13'),
+(260, '2026-04-16', '2026-05-31', 5387.55, 'Pix ', 'Pago', '2026-05-31');
+
+-- ============================================================
+-- CONSULTAS BASICAS DE VERIFICACAO
+-- ============================================================
+
+SELECT 'estado' tabela, COUNT(*) registros FROM estado
+UNION ALL SELECT 'cidade', COUNT(*) FROM cidade
+UNION ALL SELECT 'filial', COUNT(*) FROM filial
+UNION ALL SELECT 'cliente', COUNT(*) FROM cliente
+UNION ALL SELECT 'fornecedor', COUNT(*) FROM fornecedor
+UNION ALL SELECT 'produto', COUNT(*) FROM produto
+UNION ALL SELECT 'lote_produto', COUNT(*) FROM lote_produto
+UNION ALL SELECT 'funcionario', COUNT(*) FROM funcionario
+UNION ALL SELECT 'meta_vendedor', COUNT(*) FROM meta_vendedor
+UNION ALL SELECT 'folha_pagamento', COUNT(*) FROM folha_pagamento
+UNION ALL SELECT 'registro_ponto', COUNT(*) FROM registro_ponto
+UNION ALL SELECT 'pedido_venda', COUNT(*) FROM pedido_venda
+UNION ALL SELECT 'item_pedido_venda', COUNT(*) FROM item_pedido_venda
+UNION ALL SELECT 'pagamento_venda', COUNT(*) FROM pagamento_venda
+UNION ALL SELECT 'devolucao_venda', COUNT(*) FROM devolucao_venda
+UNION ALL SELECT 'avaliacao_pedido', COUNT(*) FROM avaliacao_pedido
+UNION ALL SELECT 'pedido_compra', COUNT(*) FROM pedido_compra
+UNION ALL SELECT 'item_pedido_compra', COUNT(*) FROM item_pedido_compra
+UNION ALL SELECT 'conta_pagar', COUNT(*) FROM conta_pagar
+UNION ALL SELECT 'movimento_estoque', COUNT(*) FROM movimento_estoque
+UNION ALL SELECT 'entrega', COUNT(*) FROM entrega
+UNION ALL SELECT 'ocorrencia_entrega', COUNT(*) FROM ocorrencia_entrega
+UNION ALL SELECT 'conta_receber', COUNT(*) FROM conta_receber
+ORDER BY tabela;
+
+-- Consulta de exemplo: pedidos com cliente, vendedor, filial e itens (para pratica de EXTRACT com JOIN)
+SELECT
+    pv.id_pedido,
+    pv.data_pedido,
+    c.nome_razao AS cliente,
+    f.nome AS vendedor,
+    fi.nome AS filial,
+    p.nome AS produto,
+    ipv.quantidade,
+    ipv.preco_unitario
+FROM pedido_venda pv
+JOIN cliente c ON c.id_cliente = pv.id_cliente
+JOIN funcionario f ON f.id_funcionario = pv.id_vendedor
+JOIN filial fi ON fi.id_filial = pv.id_filial
+JOIN item_pedido_venda ipv ON ipv.id_pedido = pv.id_pedido
+JOIN produto p ON p.id_produto = ipv.id_produto
+ORDER BY pv.id_pedido, ipv.id_item;
