@@ -1,0 +1,35 @@
+{
+  "metadataBaseFolder": "${PROJECT_HOME}/metadata",
+  "unitTestsBasePath": "${PROJECT_HOME}",
+  "dataSetsCsvFolder": "${PROJECT_HOME}/datasets",
+  "enforcingExecutionInHome": true,
+  "config": {
+    "variables": [
+      {
+        "name": "PG_HOST",
+        "value": "postgres",
+        "description": "postgres = Hop web do docker compose; localhost = Hop GUI instalado no PC"
+      },
+      {
+        "name": "PG_PORT",
+        "value": "5432",
+        "description": "Porta do PostgreSQL"
+      },
+      {
+        "name": "PG_DATABASE",
+        "value": "erp",
+        "description": "Database do ERP e do DW (Opção A)"
+      },
+      {
+        "name": "PG_USER",
+        "value": "postgres",
+        "description": "Usuário do PostgreSQL"
+      },
+      {
+        "name": "PG_PASSWORD",
+        "value": "postgres",
+        "description": "Senha do PostgreSQL"
+      }
+    ]
+  }
+}
